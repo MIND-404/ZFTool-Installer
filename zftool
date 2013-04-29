@@ -13,10 +13,10 @@
 # -------------------------------------------------------------------------------
 #
 # Install ZFTool into working directory:
-#  zftool install
+#	zftool.sh install
 #
 # Install ZFTool into specified directory:
-#	zftool install path <path>
+#	zftool.sh install path <path>
 #
 # 	<path>	The directory where to install the ZFTool
 #
@@ -29,18 +29,16 @@ printInfo() {
 	echo "--------------------------------------------------------------------------------"
 	echo ""
 	echo "Install ZFTool into working directory:"
-	echo "	zftool install"
+	echo "	zftool.sh install"
 	echo ""
 	echo "Install ZFTool into specified directory:"
-	echo "	zftool install path <path>"
+	echo "	zftool.sh install path <path>"
 	echo ""
 	echo "	<path>	The directory where to install the ZFTool"
 	echo ""
 	echo "Reason for failure: "$msg
 	echo ""
 }
-
-installDir="."
 
 if [ $# -eq 0 ]; then
 	msg="No arguments provided"
@@ -65,7 +63,7 @@ else
 			fi
 			if [ -n "$3" ]; then
 				if [ -d $3 ]; then
-					installDir=$3ls
+					installDir=$3
 				else
 					echo $3" is not an existing directory. Should it be created? (y/n)"
 					read input
@@ -86,11 +84,17 @@ else
 	fi
 fi
 
-# change working directory to the specified directory where to install ZFTool
-cd $installDir
+# if install directory is specified change working directory
+[ -n "$installDir" ] && cd $installDir
 
 # clone latest ZFTool repository from github into working directory
-git clone git://github.com/zendframework/ZFTool.git
+#git clone git://github.com/zendframework/ZFTool.git
+
+# temporarily use my hotfixed ZFTool git repository on github until the User Agent bug in
+# the official ZFTool is fixed
+# see my pull request:
+# https://github.com/zendframework/ZFTool/pull/35
+git clone git://github.com/krystalkid/ZFTool.git
 
 # change working directory to ZFTool
 cd ZFTool
