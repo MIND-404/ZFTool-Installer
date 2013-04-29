@@ -6,7 +6,7 @@ Installer for ZFTool (Zend Framework 2 command line tool) - This shell script cl
 Usage
 =====
 
-Use curl to download ZFTool-Installer and install ZFTool
+Use curl to download ZFTool-Installer and install ZFTool into your working directory
 
 <code>curl -sS https://raw.github.com/krystalkid/ZFTool-Installer/master/zftool >  zftool.sh && zftool.sh install && rm zftool.sh</code>
 
