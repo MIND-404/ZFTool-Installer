@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Installer for ZFTool (Zend Framework 2 command line Tool)
+# Installer for ZFTool (Zend Framework 2 command line tool)
 # 
 # This shell script clones the latest ZFTool repository from github, installs
 # it via composer and compiles ZFTool in a .phar file.
@@ -88,13 +88,7 @@ fi
 [ -n "$installDir" ] && cd $installDir
 
 # clone latest ZFTool repository from github into working directory
-#git clone git://github.com/zendframework/ZFTool.git
-
-# temporarily use my hotfixed ZFTool git repository on github until the User Agent bug in
-# the official ZFTool is fixed
-# see my pull request:
-# https://github.com/zendframework/ZFTool/pull/35
-git clone git://github.com/krystalkid/ZFTool.git
+git clone git://github.com/zendframework/ZFTool.git
 
 # change working directory to ZFTool
 cd ZFTool
